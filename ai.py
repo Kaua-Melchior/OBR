@@ -12,10 +12,10 @@ ev3 = EV3Brick()
 
 
 #Definiçoes das variaveis do PID
-Speed = 5 
-Kp = 1
-Kd = 1
-Limite = 4                                                                   
+Speed = 15
+Kp = 2
+Kd = 2
+Limite = 80                                                            
 Derivada=Proporcional=Error=Prev_Error=Pd=Speed1=Speed2 = 0
 
 # Iniciação dos sensores de cor nas portas 1 a 4
@@ -52,8 +52,8 @@ def Pid():
         Pd = -1 * Limite
 
  # determinação dos speeds
-    Speed1 = 1 * (Speed - Pd)
-    Speed2 = 1 * (Speed + Pd)
+    Speed1 = -1 * (Speed - Pd)
+    Speed2 = -1 * (Speed + Pd)
 
     Motor_Esquerdo.dc(Speed1)
     Motor_Direito.dc(Speed2)
@@ -73,8 +73,8 @@ def Geral():
 
 
     if Cor_Direita == Cor_Esquerda == branco:
-        Motor_Esquerdo.dc(40)
-        Motor_Direito.dc(40)
+        Motor_Esquerdo.dc(-70)
+        Motor_Direito.dc(-60)
         wait(1)
         Motor_Esquerdo.stop()
         Motor_Direito.stop()
@@ -82,10 +82,8 @@ def Geral():
     elif Cor_Direita == Cor_Esquerda == verde:
         Motor_Esquerdo.dc(-90)
         Motor_Direito.dc(90)
-        wait(800)
-        Motor_Esquerdo.dc(90)
-        Motor_Direito.dc(90)
-        wait(300)
+        wait(3000)
+    
         Motor_Esquerdo.stop()
         Motor_Direito.stop()
 
