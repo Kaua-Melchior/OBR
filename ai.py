@@ -65,7 +65,7 @@ def Pid():
 # Branco-Branco
 def Geral():
 
-    #branco-branco
+#branco-branco
     Cor_Direita = str(Sensor_Direita.color())
     Cor_Esquerda = str(Sensor_Esquerda.color())
     branco = 'Color.WHITE'
@@ -77,61 +77,111 @@ def Geral():
     if Cor_Direita == Cor_Esquerda == branco:
         Motor_Esquerdo.dc(45)
         Motor_Direito.dc(45)
-        wait(5)
+        wait(1)
         Motor_Esquerdo.stop()
         Motor_Direito.stop()
 
-    if Cor_Esquerda == verde:
-        wait(1000)
-        Motor_Direito.dc(40)
-        wait(20)
-        Motor_Direito.stop() 
-        wait(1000)
-        if Cor_Direita == Cor_Esquerda == verde:
-            Motor_Esquerdo.dc(-90)
-            Motor_Direito.dc(90)
-            wait(1500)
-            Motor_Esquerdo.stop()
-            Motor_Direito.stop()
+    elif Cor_Direita == Cor_Esquerda == verde:
         
-        else:
-            Motor_Esquerdo.dc(-30)
-            Motor_Direito.dc(90)
-            wait(800)
-            Motor_Esquerdo.stop()
-            Motor_Direito.stop()  
+        Motor_Esquerdo.dc(-90)
+        Motor_Direito.dc(90)
+        wait(1400)
+        Motor_Esquerdo.stop()
+        Motor_Direito.stop()
 
-
-    if Cor_Direita == verde:
-        wait(1000)
-        Motor_Esquerdo.dc(40)
-        wait(20)
-        Motor_Direito.stop() 
-        wait(1000)
-        if Cor_Direita == Cor_Esquerda == verde:
-            Motor_Esquerdo.dc(-90)
-            Motor_Direito.dc(90)
-            wait(1500)
-            Motor_Esquerdo.stop()
-            Motor_Direito.stop()
+    elif Cor_Direita != Cor_Esquerda and Cor_Direita == verde:
         
-        else:
-            Motor_Esquerdo.dc(90)
-            Motor_Direito.dc(-30)
-            wait(800)
-            Motor_Esquerdo.stop()
-            Motor_Direito.stop()  
+        Motor_Esquerdo.dc(90)
+        Motor_Direito.dc(-30)
+        wait(800)
+        Motor_Esquerdo.stop()
+        Motor_Direito.stop()
 
+    elif Cor_Esquerda != Cor_Direita and Cor_Esquerda == verde:
+        wait(10)
+        Motor_Esquerdo.dc(-30)
+        Motor_Direito.dc(90)
+        wait(800)
+        Motor_Esquerdo.stop()
+        Motor_Direito.stop()
 #tudo errado
     else:
         Pid()  
 
-
+def vai():
+    Motor_Esquerdo.dc(90)
+    Motor_Direito.dc(30)
+    wait(80)
+    Motor_Esquerdo.stop()
+    Motor_Direito.stop()
+    wait(1000000)
 # Exemplo de utilização da função
 while True:
     Geral()
 
 
+
+'''#branco-branco
+    Cor_Direita = str(Sensor_Direita.color())
+    Cor_Esquerda = str(Sensor_Esquerda.color())
+    branco = 'Color.WHITE'
+    verde = 'Color.GREEN'
+    preto = 'Color.BLACK'
+
+
+    if Cor_Direita == Cor_Esquerda == branco:
+        Motor_Esquerdo.dc(45)
+        Motor_Direito.dc(45)
+        wait(1)
+        Motor_Esquerdo.stop()
+        Motor_Direito.stop()
+
+    elif Cor_Direita != Cor_Esquerda and Cor_Direita == verde:
+        wait(1000)
+        Motor_Esquerdo.dc(90)
+        Motor_Direito.dc(30)
+        wait(80)
+        Motor_Esquerdo.stop()
+        Motor_Direito.stop()        
+        wait(1000)
+        if Cor_Direita == Cor_Esquerda == verde:
+        
+            Motor_Esquerdo.dc(-90)
+            Motor_Direito.dc(90)
+            wait(1500)
+            Motor_Esquerdo.stop()
+            Motor_Direito.stop()
+
+        else:
+            Motor_Esquerdo.dc(90)
+            Motor_Direito.dc(-30)
+            wait(800)
+            Motor_Esquerdo.stop()
+            Motor_Direito.stop()
+
+    elif Cor_Esquerda != Cor_Direita and Cor_Esquerda == verde:
+        wait(1000)
+        Motor_Esquerdo.dc(90)
+        Motor_Direito.dc(30)
+        wait(80)
+        Motor_Esquerdo.stop()
+        Motor_Direito.stop()        
+        wait(1000)
+        if Cor_Direita == Cor_Esquerda == verde:
+        
+            Motor_Esquerdo.dc(-90)
+            Motor_Direito.dc(90)
+            wait(1500)
+            Motor_Esquerdo.stop()
+            Motor_Direito.stop()
+
+        else:
+            wait(10)
+            Motor_Esquerdo.dc(-30)
+            Motor_Direito.dc(90)
+            wait(800)
+            Motor_Esquerdo.stop()
+            Motor_Direito.stop()'''
     
 
 
